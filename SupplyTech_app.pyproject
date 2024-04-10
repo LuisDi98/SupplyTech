@@ -1,0 +1,19 @@
+{
+    "files": [
+        "assets/puratosLogo.png",
+        "logic/provider/ExcelProvider/ExcelProvider.py",
+        "main.py",
+        "main.qml",
+        "ui/CentralPane/CentralPane.qml",
+        "ui/NavBar/NavBar.qml",
+        "ui/SideBar/SideBar.qml",
+        "testData/Facturación 09-01-2024.XLSX",
+        "requirements",
+        "logic/provider/SAPProvider/SAPProvider.py",
+        "logic/PickingManager.py",
+        ".gitignore",
+        "assets/icons8-ajustes-50.png",
+        "assets/icons8-carretera-64.png",
+        "logic/model/DataHolder.py"
+    ]
+}

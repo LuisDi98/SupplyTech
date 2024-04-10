@@ -1,0 +1,4 @@
+#falta Pyside (eran 2 dependencias que instalo QT automaticamente
+pandas
+openpyxl
+pyrfc
