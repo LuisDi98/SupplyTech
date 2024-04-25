@@ -288,3 +288,8 @@ tmp/
 /*-debug/
 /*-release/
 /out/
+
+/dist
+/output
+/build
+

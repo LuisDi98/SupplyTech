@@ -14,6 +14,12 @@
         ".gitignore",
         "assets/icons8-ajustes-50.png",
         "assets/icons8-carretera-64.png",
-        "logic/model/DataHolder.py"
+        "logic/model/DataHolder.py",
+        "logic/model/config.py",
+        "assets/eye_icon.png",
+        "assets/printer_icon.png",
+        "assets/icons8-gps-50.png",
+        "ui/GPS/GPS.qml",
+        "assets/customer_icon.png"
     ]
 }
