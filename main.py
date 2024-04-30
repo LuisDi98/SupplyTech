@@ -4,7 +4,10 @@ from pathlib import Path
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from logic.model.DataHolder import DataHolder
+from logic.model.DataHolder import DataHolder as Store
+from logic.provider.ExcelProvider.ExcelProvider import ExcelProvider as DataLoader
+from logic.GPSManager import GPSManager
+from logic.PickingManager import PickingManager
 
 #from logic.provider.SAPProvider.SAPProvider import SAPProvider
 """
@@ -30,38 +33,40 @@ print("Testing de SAP")
 testSAP()
 """
 
-"""
+
 
 def testExcel():
 
-    Excel Testing, just prints out an excel table loaded from a path
+    #Excel Testing, just prints out an excel table loaded from a path
 
 
-    excel_provider = ExcelProvider()
-    df = excel_provider.load("testData/Facturación 09-01-2024.XLSX")
-    print(df)
+    excel_provider = DataLoader()
+    #facturas = excel_provider.load("testData/Facturación 09-01-2024.XLSX")
+    coordenadas, hojas = excel_provider.readAllSheets("testData/Coordenadas_clientes_por_ruta.xlsx")
+    print(coordenadas)
+    print(hojas)
 
-"""
+    for hoja in hojas:
+        print("\n\nPara la hoja: ", hoja)
+        print(coordenadas[hoja])
 
 # Driver
 if __name__ == "__main__":
-
-
-    print("Testing de SAP")
     #testSAP()
-
-
     lista = [
         ["Ruta 1", ["Dato 1", "Dato 2"]],
         ["Ruta 2", ["Dato 3", "Dato 4"]]
     ]
-    data_holder = DataHolder(lista)
-
+    store = Store(lista)
+    gpsManager = GPSManager()
+    pickingManager = PickingManager()
 
     #testExcel()
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("dataHolder", data_holder)
+    engine.rootContext().setContextProperty("store", store)
+    engine.rootContext().setContextProperty("gpsManager", gpsManager)
+    engine.rootContext().setContextProperty("pickingManager", pickingManager)
     qml_file = Path(__file__).resolve().parent / "main.qml"
     engine.load(qml_file)
     if not engine.rootObjects():

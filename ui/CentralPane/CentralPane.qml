@@ -32,12 +32,12 @@ Rectangle {
             y: 25
             width: 800
             columns: 3
-            rows: Math.ceil(dataHolder.lista.length / columns) // Use the length of the list directly
+            rows: Math.ceil(store.lista.length / columns) // Use the length of the list directly
             columnSpacing: 50
             rowSpacing: 50
 
             Repeater {
-                model: dataHolder.lista
+                model: store.lista
 
                 Rectangle {
                     width: 300
@@ -94,7 +94,7 @@ Rectangle {
     function showMap(indexButtonClicked) {
         console.log("index: ", indexButtonClicked)
 
-        var data = dataHolder.lista[indexButtonClicked];
+        var data = store.lista[indexButtonClicked];
         mapView.load(data);
     }
 }

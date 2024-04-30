@@ -24,4 +24,10 @@ Window {
     NavBar {
         id: navbar
     }
+
+
+    Connections {
+        target: store
+    }
+
 }

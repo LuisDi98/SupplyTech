@@ -8,11 +8,13 @@ Item {
     Plugin {
             id: mapPlugin
             name: "osm"
-            PluginParameter {
-                name: "osm.mapping.custom.host"
-                value: "https://tite.openstreetmap.org/"
-            }
+            PluginParameter { name: "osm.useragent"; value: "My great Qt OSM application" }
+            PluginParameter { name: "osm.mapping.host"; value: "http://osm.tile.server.address/" }
+            PluginParameter { name: "osm.mapping.copyright"; value: "All mine" }
+            PluginParameter { name: "osm.routing.host"; value: "http://osrm.server.address/viaroute" }
+            PluginParameter { name: "osm.geocoding.host"; value: "http://geocoding.server.address" }
         }
+
 
     Map {
         id: map
